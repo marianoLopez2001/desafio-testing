@@ -31,7 +31,8 @@ export default class DaoContainerMongo {
     async create(data) {
         try {
             await this.model.create(data)
-            console.log(data);
+            const Status = {code: 200, msg: 'Creado'}
+            return Status
         } catch (error) {
             throw new ErrorClass(500, error)
         }
@@ -47,10 +48,8 @@ export default class DaoContainerMongo {
     }
 
     async readById(id) {
-        console.log(id);
         try {
             let docs = await this.model.find({ _id: id }).lean()
-            console.log(docs[0]);
             return docs[0]
         } catch (error) {
             throw new ErrorClass(500, error)
@@ -60,6 +59,8 @@ export default class DaoContainerMongo {
     async update(id, data) {
         try {
             await this.model.replaceOne({ _id: id }, data)
+            const Status = {code: 200, msg: 'actualizado'}
+            return Status
         } catch (error) {
             throw new ErrorClass(500, error)
         }
@@ -68,6 +69,8 @@ export default class DaoContainerMongo {
     async deleteById(id) {
         try {
             await this.model.deleteOne({ _id: id });
+            const Status = {code: 200, msg: 'Eliminado'}
+            return Status
         } catch (error) {
             throw new ErrorClass(500, error)
         }
@@ -75,6 +78,4 @@ export default class DaoContainerMongo {
 }
 
 const main = DaoContainerMongo.getInstance()
-// main.readById('objetocambiado2')
-
 

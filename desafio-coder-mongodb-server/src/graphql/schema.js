@@ -6,22 +6,20 @@ input UserInput {
   }
   type User {
     name: String,
+    _id: ID!
   }
   type Query {
     readAll: [User],
     readById(id: String): User
   }
+  type Status {
+    code: Int, msg: String
+  }
   type Mutation { 
-	create(UserInput: UserInput): User,
-	update(id: ID!, datos: UserInput):User,
-	deleteById(id: ID!): User
+	create(data: UserInput): Status,
+	update(id: ID!, data: UserInput):Status,
+	deleteById(id: ID!): Status
 }
-`); //_id o id?
+`); 
 
 export default schema;
-
-//    readById(id: ID!): User,
-
-
-//user
-//    _id: ID!

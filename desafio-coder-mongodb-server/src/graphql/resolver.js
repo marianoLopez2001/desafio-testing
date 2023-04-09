@@ -10,14 +10,17 @@ export async function readById(id){
     return await DAO.readById(id.id);
 }
 
-export async function create(){
-    return await DAO.create();
+export async function create(data){
+    const formatedData = {name: data.data.name}
+    return await DAO.create(formatedData);
 }
 
-export async function update(){
-    return await DAO.update();
+export async function update(obj){
+    const {id, data} = obj
+    const formatedData = {name: data.name}
+    return await DAO.update(id, formatedData);
 }
 
-export async function deleteById(){
-    return await DAO.deleteById();
+export async function deleteById(id){
+    return await DAO.deleteById(id.id);
 }
