@@ -31,6 +31,7 @@ export default class DaoContainerMongo {
     async create(data) {
         try {
             await this.model.create(data)
+            console.log(data);
         } catch (error) {
             throw new ErrorClass(500, error)
         }
@@ -46,9 +47,11 @@ export default class DaoContainerMongo {
     }
 
     async readById(id) {
+        console.log(id);
         try {
             let docs = await this.model.find({ _id: id }).lean()
-            return docs
+            console.log(docs[0]);
+            return docs[0]
         } catch (error) {
             throw new ErrorClass(500, error)
         }
@@ -72,6 +75,6 @@ export default class DaoContainerMongo {
 }
 
 const main = DaoContainerMongo.getInstance()
-main.create({name:'jorge'})
+// main.readById('objetocambiado2')
 
 

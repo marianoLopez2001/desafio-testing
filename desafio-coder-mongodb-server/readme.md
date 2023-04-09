@@ -5,4 +5,4 @@
 
 # Los parametros de la DB van con primera letra mayuscula (Mongo | Firebase)
 
-
+# Tuve que cambiar el "_id" a "id" en los metodos de la clase
