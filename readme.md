@@ -1,5 +1,5 @@
-# server con crud en firebase y mongodb
+# Las rutas las hice con get porque todavia no le agarre la mano al framework, por el tema de req.params o body que es con decorators y nunca use, seguire viendo la documenacion de adonis.
 
-# mocha no me tomaba bien la variable de MINIMIST por alguna razon, asi que esa parte esta hardcodeada en una variable en el archivo ...server/src/classes/contenedores/daos.js
+# Las rutas estan en /start/routes.js y las funciones en /app/controllers/http/userscontroller.js
 
-# Y despues firebase me tiraba algunos errores raros de collection cuando no los cambié, asi que segui trabajando con mongo
+# hice la persistencia de datos con mysql
